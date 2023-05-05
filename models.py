@@ -18,11 +18,10 @@ embedding_model_dict = {
 
 # supported LLM models
 llm_model_dict = {
-    "chatglm-6b-int4": "E:\\sdwebui\\image2text_prompt_generator\\models\\chatglm-6b-int4",
-
-    # "chatglm-6b-int4": "THUDM/chatglm-6b-int4",
-    "chatglm-6b": "E:\\sdwebui\\image2text_prompt_generator\\models\\chatglm-6b",
-    # "chatglm-6b": "THUDM/chatglm-6b",
+    #"chatglm-6b": "E:\\sdwebui\\image2text_prompt_generator\\models\\chatglm-6b",
+    #"chatglm-6b-int4": "E:\\sdwebui\\image2text_prompt_generator\\models\\chatglm-6b-int4",
+    "chatglm-6b": "THUDM/chatglm-6b",
+    "chatglm-6b-int4": "THUDM/chatglm-6b-int4",
     "llama-7b": "decapoda-research/llama-7b-hf",
     "llama-13b": "decapoda-research/llama-13b-hf",
     "t5-lamini-flan-783M": "MBZUAI/LaMini-Flan-T5-783M",

@@ -98,6 +98,7 @@ def gen_keyword_summary(input_txt, keyword_prompt, summary_prompt, max_length=20
 
 def gen_summary(input_txt, summary_prompt, max_length=2048):
     lines = input_txt.split("\n\n\n")
+    output_summary = []
     summary = ""
     for idx, line in enumerate(lines):
         if idx == 1:
@@ -118,22 +119,28 @@ def gen_summary(input_txt, summary_prompt, max_length=2048):
                 prompt_template=PROMPT_TEMPLATE
             )[0]
             logger.debug(f"summary: {len(summary)} + text: {len(line)}  ==> {summary}")
+        output_summary.append(summary)
 
-    return summary
+    return "\n\n\n".join(output_summary)
 
 
 def summary_ui():
     with gr.Row():
         with gr.Column(scale=1):
             line_max_length = gr.Slider(minimum=512, maximum=4096, step=1, value=1024, label="每行最大长度")
-            strip_input_lines = gr.Slider(label="去除输入文本连续的空行(0:不除去)", minimum=1, maximum=10, step=1,
-                                          value=0)
+            strip_input_lines = gr.Slider(
+                label="去除输入文本连续的空行(0:不除去)",
+                minimum=1,
+                maximum=10,
+                step=1,
+                value=0
+            )
         with gr.Column(scale=4):
             keyword_prompt = gr.Textbox(
                 lines=1,
-                label="提取关键词",
-                value="提取以下内容的关键词:",
-                placeholder="请输入提取关键词的Prompt"
+                label="抽取关键词",
+                value="抽取以下内容的人物和地点:",
+                placeholder="请输入抽取关键词的Prompt"
             )
             summary_prompt = gr.Textbox(
                 lines=2,
@@ -152,7 +159,7 @@ def summary_ui():
         btn_split = gr.Button("分段")
         btn_keyword = gr.Button("提取关键词")
         btn_summary = gr.Button("生成摘要")
-        
+
     btn_split.click(
         split_input_text,
         inputs=[input_text, strip_input_lines, line_max_length],
