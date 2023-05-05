@@ -1,0 +1,13 @@
+gradio
+similarities>=1.0.5
+sentencepiece
+textgen
+markdown
+PyPDF2
+python-docx
+pandas
+protobuf
+cpm-kernels
+loguru
+bs4
+dynaconf

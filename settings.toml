@@ -1,0 +1,39 @@
+[models]
+
+        [models.llm."chatglm-6b"]
+            type = "chatglm"
+            path = "THUDM/chatglm-6b"
+        [models.llm."chatglm-6b-int8"]
+            type = "chatglm"
+            path = "THUDM/chatglm-6b-int8"
+        [models.llm."chatglm-6b-int4"]
+            type = "chatglm"
+            path = "THUDM/chatglm-6b-int4"
+        [models.llm."phoenix-inst-chat-7b"]
+            type = "phoenix"
+            path = "FreedomIntelligence/phoenix-inst-chat-7b"
+        [models.llm."phoenix-inst-chat-7b-int4"]
+            type = "phoenix"
+            path = "FreedomIntelligence/phoenix-inst-chat-7b-int4"
+
+    [models.embeddings]
+        [models.embeddings."text2vec-large-chinese"]
+            type = "default"
+            path = "GanymedeNil/text2vec-large-chinese"
+        [models.embeddings."text2vec-base"]
+            type = "default"
+            path = "shibing624/text2vec-base-chinese"
+        [models.embeddings."text2vec-base"]
+            type = "default"
+            path = "shibing624/text2vec-base-chinese"
+        [models.embeddings."sentence-transformers"]
+            type = "default"
+            path = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+        [models.embeddings."ernie-tiny"]
+            type = "default"
+            path = "nghuyong/ernie-3.0-nano-zh"
+        [models.embeddings."ernie-base"]
+            type = "default"
+            path = "nghuyong/ernie-3.0-base-zh"
+
+
