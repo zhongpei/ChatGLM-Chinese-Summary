@@ -169,8 +169,8 @@ def gen_summary(input_txt, summary_mode, keyword_prompt, summary_prompt, max_len
 def summary_ui():
     with gr.Row():
         with gr.Column(scale=1):
-            line_max_length = gr.Slider(minimum=512, maximum=4096, step=1, value=1024, label="每段最大长度")
-            line_coincide_length = gr.Slider(minimum=0, maximum=4096, step=1, value=0, label="每段重合长度")
+            line_max_length = gr.Slider(minimum=512, maximum=4096, step=1, value=640, label="每段最大长度")
+            line_coincide_length = gr.Slider(minimum=0, maximum=4096, step=1, value=30, label="每段重合长度")
             strip_input_lines = gr.Slider(
                 label="去除输入文本连续的空行(0:不除去)",
                 minimum=0,
@@ -178,7 +178,7 @@ def summary_ui():
                 step=1,
                 value=2
             )
-            summary_mode = gr.Radio(choices=["分段摘要", "递归摘要", ], label="摘要模式", value="分段摘要")
+            summary_mode = gr.Radio(choices=["分段摘要", "递归摘要", ], label="摘要模式", value="递归摘要")
         with gr.Column(scale=4):
             keyword_prompt = gr.Textbox(
                 lines=1,
